@@ -65,3 +65,27 @@ print(pedro.generate())
 print(laura.generate(toks=100))
 print(mateo.generate(seed="El"))
 ```
+
+Vale la pena aclarar esto pero algunas personas a la que se los mostre creen que por ejemplo entrenarlo con
+
+```text
+El gato come.
+El perro come.
+El gato duerme.
+```
+
+genera esto:
+
+```python
+{'': ['El'], '.': [None, None, None], 'El': ['gato', 'perro', 'gato'], 'gato': ['come', 'duerme'], 'come': ['.', '.'], 'perro': ['come'], 'duerme': ['.']}
+```
+
+Con tres None en "." por aparece al final de una oracion tres veces. Pero no, eso es completamente falso, en realidad termina asi:
+
+```python
+{'': ['El'], '.': [None, 'El', 'El'], 'El': ['gato', 'perro', 'gato'], 'gato': ['come', 'duerme'], 'come': ['.', '.'], 'perro': ['come'], 'duerme': ['.']}
+```
+
+Porque a `train` no le importa en lo mas minimo el final de una oracion, solo le pone `None` al **ULTIMO TOKEN** no al token de final de oracion, de final de linea, ninguno de esos, al **ULTIMO TOKEN** 
+
+
