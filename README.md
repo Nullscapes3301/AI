@@ -1,4 +1,4 @@
-# AI Work
+# AI
 
 Esta "AI" es una aplicacion independiente de las cadenas de Markov de primer orden.
 
