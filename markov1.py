@@ -1,5 +1,5 @@
 """
-RLL Programming Language
+markov1
 Copyright (C) 2026 Nullscapes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
